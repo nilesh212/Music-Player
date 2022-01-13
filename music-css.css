@@ -1,0 +1,1833 @@
+body {
+  background-color: #0c1027;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+@keyframes loading-page {
+  from {
+    transform: translateY(-100%) translateX(-100%) scale(0);
+  }
+  to {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+/*--------------------------------------------------*/
+/* IMPORTANT SECTION:
+  This .css file is used for to .html files.
+  PRESS CTRL+F AND ADD FOLLOWING  NAMES TO NAVIGATE TO THESE SECTIONS
+  --------------------------------------------------------
+  A] music-html.html file
+      1. Feedback
+      2. Header Style
+      3. Home Page
+      4. Home Page -> Latest Release
+      5. Home Page -> Popular Artists
+      6. Home Page -> Radio Stations
+      7. Home Page -> Mood Music
+      8. Home Page -> Latest English
+      9. Queue
+  ----------------------------------------------------
+  B] artists-music.html file
+      1. Artist's Information
+      2. Side Bar
+      3. Similart Artists
+      4. Recently Played Songs
+  --------------------------------------------------------------
+  C] Common features to both html files
+      1. Feedback
+      2. Header Style
+      3. Audio Player
+*/
+/*----------------------------------------------------*/
+
+/*--------------------------------------------------*/
+/* Feedback */
+/*----------------------------------------------------*/
+
+.feedback {
+  position: fixed;
+  top: 12vh;
+  color: white;
+  width: 12%;
+  left: 0;
+  font-size: 2rem;
+  /* letter-spacing: 2px; */
+  text-align: center;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-wrap: break-word;
+  transition: all 0.3s ease-in-out;
+  background-color: lightpink;
+  z-index: 3;
+}
+.feedback textarea {
+  display: none;
+}
+.feedback button {
+  display: none;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.feedback p {
+  margin: 2px 0;
+}
+.fa-comment-alt {
+  display: none;
+  color: orange;
+  margin: 0;
+}
+.feedback:hover {
+  background-color: orange;
+  width: 13%;
+}
+.feedback:hover textarea {
+  display: block;
+  width: 95%;
+}
+.feedback:hover .fa-comment-alt {
+  display: none;
+}
+.feedback:hover p {
+  display: block;
+  margin: 0;
+  font-size: 2vw;
+}
+.feedback:hover button {
+  display: block;
+}
+.feedback button:hover {
+  color: lightskyblue;
+  background-color: lightslategray;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 700px) {
+  .feedback {
+    text-align: left;
+    background: none;
+  }
+  .feedback:hover {
+    text-align: center;
+    width: 40%;
+  }
+  .feedback:hover p {
+    display: block;
+    margin: 0;
+    font-size: 4vw;
+  }
+  .fa-comment-alt {
+    display: block;
+    color: orange;
+  }
+  .feedback p {
+    display: none;
+  }
+  .feedback:hover p {
+    display: block;
+  }
+}
+
+/* -------------------------------------------------- */
+/* Header Style*/
+/* -------------------------------------------------- */
+
+#music-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0c1027;
+  z-index: 3;
+}
+
+.display-prop {
+  display: inline-block;
+}
+
+.music-logo {
+  height: 100%;
+}
+.music-logo-img {
+  height: 90%;
+}
+
+.music-site-name {
+  width: 40%;
+  text-align: center;
+  font-size: 2.3vw;
+}
+
+/* Rainbow color to website name*/
+
+.music-site-name span:nth-child(1) {
+  color: #ff595e;
+}
+.music-site-name span:nth-child(2) {
+  color: #ffca3a;
+}
+.music-site-name span:nth-child(3) {
+  color: #8ac926;
+}
+.music-site-name span:nth-child(4) {
+  color: #1982c4;
+}
+.music-site-name span:nth-child(5) {
+  color: #6a4c93;
+}
+.music-site-name span:nth-child(6) {
+  color: #390099;
+}
+.music-site-name span:nth-child(7) {
+  color: #9e0059;
+}
+.music-site-name span:nth-child(8) {
+  color: #ff0054;
+}
+.music-site-name span:nth-child(9) {
+  color: #ff5400;
+}
+.music-site-name span:nth-child(10) {
+  color: #ffbd00;
+}
+/*------------------------------*/
+
+.profile-photo {
+  height: 10vh;
+  width: 10vh;
+}
+
+.profile-img {
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  margin: 10%;
+}
+
+.search-bar {
+  background-color: #12193e;
+  width: 30%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 3px;
+  position: relative;
+}
+
+#search-bar-input {
+  height: 80%;
+  width: 70%;
+  color: whitesmoke;
+  border: none;
+  background: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3vw;
+}
+
+.fa-search,
+.fa-microphone {
+  color: rgb(184, 184, 184);
+  font-size: 1.3vw;
+}
+
+.fa-search:hover,
+.fa-microphone:hover {
+  color: white;
+}
+
+.search-bar-hover {
+  display: none;
+}
+.notification-bell .fa-bell {
+  color: rgb(184, 184, 184);
+  font-size: 1.3vw;
+}
+.notification-bell:hover .fa-bell {
+  color: white;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .music-site-name {
+    font-size: 5.5vw;
+  }
+  #search-bar-input {
+    display: none;
+  }
+  .microphone {
+    display: none;
+  }
+  .search-bar {
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+    width: auto;
+  }
+  .search-bar:hover .search-bar-hover {
+    background-color: #12193e;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 3px;
+    display: inline;
+    position: absolute;
+    top: 2vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .search-bar:hover .search-bar-hover #search-bar-input {
+    display: inline-block;
+  }
+  .search-bar:hover .search-bar-hover .microphone {
+    display: inline-block;
+  }
+  .notification-bell {
+    display: none;
+  }
+  .fa-search,
+  .fa-microphone {
+    color: rgb(184, 184, 184);
+    font-size: 3vw;
+  }
+  .notification-bell .fa-bell {
+    color: rgb(184, 184, 184);
+    font-size: 3vw;
+  }
+}
+
+/* -------------------------------------------------- */
+/* Home Page */
+/* -------------------------------------------------- */
+
+.main-content {
+  /* border: 3px solid white; */
+  margin: 3%;
+  display: flex;
+  width: 95%;
+  position: relative;
+}
+
+.home-page {
+  width: 65%;
+  /* border: 2px solid greenyellow; */
+  margin-right: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.music-suggestion {
+  width: 100%;
+  height: 50vh;
+  /* border: 2px solid lightskyblue; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.music-suggestion > div {
+  width: 32%;
+  height: 70%;
+  background-size: 100% 100%;
+}
+
+.music-suggestion-list1 {
+  background-image: url(images/album-photo-1.jpg);
+}
+
+.music-suggestion-list2 {
+  background-image: url(images/album-photo-2.jpg);
+}
+
+.music-suggestion-list3 {
+  background-image: url(images/album-photo-3.jpg);
+}
+
+/* .music-suggestion-list1:hover,
+.music-suggestion-list2:hover,
+.music-suggestion-list3:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 5px 3px white;
+  transition: 0.5s ease-in-out;
+} */
+
+.music-suggestion:hover > div {
+  opacity: 0.7;
+}
+
+.music-suggestion:hover .music-suggestion-list1:hover,
+.music-suggestion:hover .music-suggestion-list2:hover,
+.music-suggestion:hover .music-suggestion-list3:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 5px 3px white;
+  transition: 0.2s ease-in-out;
+  opacity: 1;
+  z-index: 4;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .main-content {
+    /* border: 3px solid white; */
+    margin: 3%;
+    display: block;
+    width: 95%;
+    position: relative;
+    text-align: center;
+  }
+  .home-page {
+    width: 100%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .music-suggestion {
+    display: block;
+    height: auto;
+    width: 100%;
+    /* border: 3px solid white; */
+  }
+  .display-prop {
+    /* border: 2px solid white; */
+    display: block;
+  }
+  .music-suggestion > div {
+    width: 80%;
+    height: 30vh;
+    margin: auto;
+    background-size: 100% 100%;
+    margin-top: 6px;
+  }
+  .music-suggestion:hover > div {
+    opacity: 1;
+  }
+  .music-suggestion:hover .music-suggestion-list1:hover,
+  .music-suggestion:hover .music-suggestion-list2:hover,
+  .music-suggestion:hover .music-suggestion-list3:hover {
+    transform: scale(1);
+    box-shadow: 0px 0px 5px 3px white;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+/* -------------------------------------------------- */
+/* Home Page -> Latest Release */
+/* -------------------------------------------------- */
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+
+.latest-release-list {
+  width: 100%;
+  height: 30vh;
+  /* border: 2px solid white; */
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 2vh 0;
+}
+
+.latest-song {
+  width: 40%;
+  height: 40%;
+  margin: 4px 0px;
+  /* border: 2px solid white; */
+  display: flex;
+}
+
+.latest-song-img {
+  height: 98%;
+  width: 40%;
+  border-radius: 4px;
+  background-image: url(images/onism.jpg);
+  background-size: 100% 100%;
+  /* border: 2px solid white; */
+  /* display: none; */
+  position: relative;
+}
+
+.latest-song-img:hover {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url(images/onism.jpg);
+  background-size: 100% 100%;
+}
+.latest-song-img:hover .fa-play {
+  display: block;
+  font-size: 2vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  opacity: 1;
+}
+.latest-song-img .fa-play {
+  display: none;
+}
+
+.latest-song-info {
+  width: 58%;
+  height: 100%;
+  margin: 0px 2%;
+  text-align: center;
+  /* border: 2px solid white; */
+}
+
+.song-menu {
+  width: 99%;
+  text-align: right;
+  /* border: 2px solid white; */
+  color: rgb(184, 184, 184);
+  /* margin: 0.4vw 0; */
+  margin: 0;
+  font-size: 1.5vw;
+  position: relative;
+}
+
+.song-menu .fa-ellipsis-h {
+  margin: 0;
+}
+#song-menu-select {
+  appearance: none;
+  border: none;
+  background: none;
+  color: rgb(184, 184, 184);
+  font-family: "Lato", "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.5vw;
+  width: 1.5vw;
+  margin: 0;
+}
+.song-name {
+  width: 47%;
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+  font-size: 1.1vw;
+}
+.song-duration {
+  width: 47%;
+  display: inline-block;
+  color: rgb(184, 184, 184);
+  font-size: 1vw;
+  text-align: right;
+  margin: 0;
+}
+
+.song-date {
+  color: rgb(184, 184, 184);
+  font-size: 0.8vw;
+  margin: 0;
+  text-align: left;
+  /* margin-top: 0.5vw; */
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .latest-release-list {
+    width: 100%;
+    height: auto;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+  }
+  .latest-song {
+    width: 100%;
+    height: 15vh;
+    margin: 4px 0px;
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .latest-song-info {
+    display: none;
+    width: 0%;
+    height: 0%;
+    margin: 0px 0%;
+    text-align: center;
+    /* border: 2px solid white; */
+  }
+
+  .latest-song-img:hover .fa-play {
+    font-size: 7vw;
+  }
+}
+
+/*--------------------------------------------------*/
+/* Home Page -> Popular Artists */
+/*----------------------------------------------------*/
+
+.popular-artists {
+  width: 100%;
+  margin: 2vh;
+}
+.popular-artists-list {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  margin-top: 2vh;
+  /* border: 2px solid white; */
+}
+
+.artist-info {
+  width: 16%;
+  height: 98%;
+  text-align: center;
+  margin: 1vh;
+  color: white;
+  text-decoration: none;
+}
+
+.artist-info p {
+  margin-top: 3px;
+  font-size: 1vw;
+}
+
+.artist-img {
+  width: 97%;
+  height: 80%;
+  background-image: url(images/ed-sheeran.jpg);
+  background-size: 100% 100%;
+  border-radius: 50%;
+  position: relative;
+}
+
+.artist-img .fa-play {
+  display: none;
+}
+
+.artist-img p {
+  display: none;
+}
+
+.artist-img:hover {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url(images/ed-sheeran.jpg);
+  background-size: 100% 100%;
+}
+.artist-img:hover .fa-play {
+  display: block;
+  font-size: 2vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 2vw;
+  opacity: 1;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .popular-artists {
+    text-align: center;
+  }
+  .popular-artists-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    /* border: 2px solid white; */
+  }
+  .artist-info {
+    width: 80%;
+    height: 40vh;
+    text-align: center;
+    margin: auto;
+    margin-top: 1vh;
+  }
+  .artist-img {
+    border-radius: 50%;
+    width: 100%;
+    height: 80%;
+  }
+  .artist-img:hover .fa-play {
+    font-size: 6vw;
+    color: lightskyblue;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .artist-img:hover .fa-play p {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+  }
+  .artist-img + p {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/*--------------------------------------------------*/
+/* Home Page -> Radio Stations */
+/*----------------------------------------------------*/
+
+.radio-stations {
+  background-color: #101642;
+  height: 15vh;
+  width: 100%;
+  margin: auto;
+  /* text-align: center; */
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.radio-title {
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+
+.radio-title-1 {
+  width: 100%;
+  height: 75%;
+  background-color: #f9d64c;
+  margin: 2vh 0;
+}
+
+.radio-title-2 {
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  background-color: #f0bc10;
+  position: absolute;
+  z-index: 1;
+}
+.radio-title-3 {
+  width: 80%;
+  height: 100%;
+  top: 0%;
+  left: 10%;
+  text-align: center;
+  background-color: #ff4f0a;
+  position: absolute;
+  z-index: 2;
+  font-size: 2vw;
+}
+
+.radio-title-3 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+.radio-list {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.radio-1 {
+  width: 13%;
+  height: 80%;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(images/rock.jpg);
+  background-size: 100% 107%;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  font-size: 1.2vw;
+  margin: auto;
+  text-align: center;
+}
+
+.radio-1 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -140%);
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .radio-stations {
+    background-color: #0c1027;
+    /* border: 2px solid white; */
+    height: auto;
+    width: 100%;
+    /* margin: auto; */
+    /* text-align: center; */
+    border-radius: 2px;
+    display: block;
+    position: relative;
+  }
+  .radio-title {
+    width: 100%;
+    height: 20vh;
+    margin: 30px 0;
+  }
+  .radio-title-2 {
+    top: -8%;
+  }
+  .radio-title-3 {
+    top: -13%;
+    font-size: 6vw;
+  }
+  .radio-list {
+    width: 100%;
+    height: auto;
+    /* Above height is very important to make radio-list in border
+      And one more thing, make sure that whatever you have written inside the selector
+      which is outside the @media to look at the properties very carefully
+      You should make changes to the all properties which are there in the selected selector.
+
+    */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .radio-1 {
+    width: 40%;
+    height: 30vw;
+    font-size: 4vw;
+    margin: 2px 0;
+    /* display: inline-block; */
+    position: relative;
+  }
+}
+/* ------------------------------------------------------ */
+/* Home Page -> Mood Music */
+/* --------------------------------------------------- */
+.mood-music {
+  width: 100%;
+  height: 30vh;
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mood-type {
+  width: 31%;
+  height: 100%;
+  position: relative;
+  background-image: url(images/party-mood.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+  transition: all 0.2s linear;
+}
+
+.mood-type p {
+  position: absolute;
+  font-size: 2vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+}
+
+.mood-type:hover {
+  background-size: 120% 120%;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .mood-music {
+    width: 100%;
+    height: auto;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+  }
+  .mood-type {
+    width: 70%;
+    height: 30vw;
+    margin: 6px;
+    border-radius: 3px;
+  }
+  .mood-type p {
+    font-size: 4vw;
+  }
+}
+
+/*--------------------------------------------------*/
+/* Home Page -> Latest English */
+/*----------------------------------------------------*/
+
+.latest-english {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.english-songs {
+  width: 100%;
+  height: 13vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+  /* border: 2px solid white; */
+}
+
+.english-song-1 {
+  width: 15%;
+  height: 100%;
+}
+
+.english-img {
+  width: 100%;
+  border-radius: 3px;
+  height: 77%;
+}
+
+.english-song-1 p:nth-child(2) {
+  font-size: 1.1vw;
+  margin: 2px;
+}
+
+.english-song-1 p:nth-child(3) {
+  font-size: 0.9vw;
+  color: rgb(184, 184, 184);
+  margin: 1px;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .latest-english {
+    text-align: center;
+  }
+  .english-songs {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+  }
+  .english-song-1 {
+    width: 60%;
+    height: auto;
+    /* border: 2px solid white; */
+    margin: 4px 0;
+  }
+  .english-img {
+    width: 100%;
+    border-radius: 3px;
+    height: 40vw;
+  }
+  .english-song-1 p:nth-child(2) {
+    font-size: 4vw;
+  }
+
+  .english-song-1 p:nth-child(3) {
+    font-size: 2vw;
+    margin-bottom: 5vw;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* Queue */
+/* ------------------------------------------------------- */
+
+.queue {
+  /* border: 2px solid white; */
+  width: 35%;
+  left: 65%;
+  top: 12vh;
+  height: 88vh;
+  position: fixed;
+  overflow-y: scroll;
+  right: -20;
+}
+
+.queue-title-container {
+  widht: 100%;
+  position: sticky;
+  top: 0vh;
+}
+
+.queue-title {
+  width: 49%;
+}
+
+.queue-options-div {
+  width: 49%;
+  text-align: right;
+}
+
+#queue-options {
+  background: none;
+  color: yellowgreen;
+  border: none;
+}
+
+#queue-options option {
+  height: 20vw;
+  color: black;
+  font-size: 1vw;
+  border-bottom: 3px grey;
+}
+
+.playlist {
+  margin-top: 1vw;
+  /* border: 2px solid white; */
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.playlist-song {
+  width: 80%;
+  height: 5vw;
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.playlist-srno {
+  color: rgb(184, 184, 184);
+  font-size: 1vw;
+}
+
+.playlist-song-img {
+  width: 15%;
+  height: 3vw;
+  margin: auto;
+  border-radius: 3px;
+  background-image: url(images/rock.jpg);
+  background-size: 100% 100%;
+  position: relative;
+}
+.playlist-song-img .fa-play {
+  display: none;
+}
+.playlist-song-img:hover .fa-play {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.playlist-song-img .audio-player-1 {
+  display: none;
+}
+.playlist-song-img #audio-player:target {
+  display: block;
+}
+.playlist-song-name {
+  width: 50%;
+  text-align: left;
+}
+.playlist-song-name p {
+  margin: 2px;
+}
+
+.playlist-song-name p:nth-child(1) {
+  font-size: 1vw;
+}
+
+.playlist-song-name p:nth-child(2) {
+  font-size: 0.7vw;
+  color: rgb(184, 184, 184);
+}
+
+.favourite-check {
+  color: rgb(184, 184, 184);
+  font-size: 1vw;
+}
+
+.playlist-song-img:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.466)),
+    url(images/rock.jpg);
+  background-size: 100% 100%;
+}
+.playlist-song-name:hover + .playlist-song-img {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.466)),
+    url(images/rock.jpg);
+  background-size: 100% 100%;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .queue {
+    width: 90%;
+    display: block;
+    text-align: center;
+    height: auto;
+    margin: auto;
+    position: static;
+    overflow: hidden;
+  }
+  .queue-title {
+    width: 100%;
+  }
+  .queue-options-div {
+    width: 100%;
+    text-align: center;
+  }
+  #queue-options option {
+    height: 20vw;
+    color: black;
+    font-size: 2vw;
+    border-bottom: 3px grey;
+  }
+  .playlist-song {
+    height: 9vw;
+    /* border: 2px solid white; */
+    justify-content: space-between;
+  }
+  .playlist-srno {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .playlist-song-img {
+    width: 20%;
+    height: 8vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .playlist-song-name {
+    width: 50%;
+    text-align: left;
+  }
+  .playlist-song-name p:nth-child(1) {
+    font-size: 2vw;
+  }
+
+  .playlist-song-name p:nth-child(2) {
+    font-size: 1.7vw;
+  }
+  .favourite-check {
+    color: rgb(184, 184, 184);
+    font-size: 3vw;
+    margin-right: 10px;
+  }
+}
+
+/*----------------------------------------------------*/
+/* Audio Player */
+/*----------------------------------------------------*/
+#audio-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #282828;
+  width: 100%;
+  height: 11vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 4;
+}
+
+/* I used #audio-player before .playlist-song because 
+i don't want these effects on outside of #audio-player's classes */
+
+#audio-player .playlist-song {
+  width: 20%;
+  height: 95%;
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: flex-start;
+}
+
+#audio-player .playlist-song-img {
+  width: 30%;
+  height: 5vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border-radius: 3px;
+  background-image: url(images/rock.jpg);
+  background-size: 100% 100%;
+}
+
+#audio-player .playlist-song-name {
+  width: 30%;
+}
+#audio-player .playlist-song-name p {
+  margin: 2px;
+}
+
+#audio-player .playlist-song-name p:nth-child(1) {
+  font-size: 1vw;
+}
+
+#audio-player .playlist-song-name p:nth-child(2) {
+  font-size: 0.7vw;
+  color: rgb(184, 184, 184);
+}
+#audio-player .favourite-check {
+  width: 20%;
+  color: rgb(184, 184, 184);
+  font-size: 1vw;
+  top: 0;
+  text-align: start;
+}
+#audio-player .favourite-check .fa-heart {
+  margin: 0.4vw;
+}
+#audio-player .favourite-check .fa-ban {
+  margin: auto;
+}
+#audio-player .favourite-check .fa-play {
+  display: none;
+}
+#audio-player:target {
+  display: none;
+}
+.audio-controller {
+  width: 50%;
+  height: 95%;
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-controller-list {
+  width: 80%;
+  text-align: center;
+  /* border: 2px solid white; */
+}
+
+.audio-controller-list:first-child {
+  font-size: 1vw;
+  color: rgb(184, 184, 184);
+}
+
+.play-pause-system i:nth-child(3) {
+  font-size: 2.5vw;
+}
+
+.play-pause-system {
+  font-size: 1vw;
+  color: rgb(184, 184, 184);
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+.music-duration span {
+  font-size: 0.8vw;
+  color: rgb(184, 184, 184);
+}
+
+.music-remaining {
+  width: 65%;
+  height: 0.2vw;
+  background-color: #404040;
+  margin: 0.3vw;
+  border-radius: 0.4vw;
+  vertical-align: middle;
+  position: relative;
+}
+.music-remaining-percentage {
+  width: 35%;
+  height: 100%;
+  background-color: #2ce077;
+  overflow: hidden;
+  border-bottom-left-radius: 0.4vw;
+  border-top-left-radius: 0.4vw;
+}
+.music-remaining i {
+  position: absolute;
+  left: 33%;
+  top: -210%;
+}
+.audio-controller-list i:hover {
+  color: white;
+}
+.special-features {
+  width: 17%;
+  height: 95%;
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(184, 184, 184);
+}
+
+.special-features .fa-volume-up {
+  width: 40%;
+}
+.special-features i,
+.special-features a {
+  font-size: 1vw;
+}
+.special-features i:hover {
+  color: white;
+}
+.special-features a {
+  color: rgb(184, 184, 184);
+}
+/* 
+  If screen width is <= 1200px these rules will be
+  applied.
+*/
+@media screen and (max-width: 1200px) {
+  #audio-player .playlist-song-name p:nth-child(1) {
+    font-size: 1.5vw;
+  }
+
+  #audio-player .playlist-song-name p:nth-child(2) {
+    font-size: 1.2vw;
+    color: rgb(184, 184, 184);
+  }
+  #audio-player .favourite-check {
+    font-size: 1.3vw;
+  }
+  .audio-controller-list:first-child {
+    font-size: 1.4vw;
+    color: rgb(184, 184, 184);
+  }
+  .play-pause-system i:nth-child(3) {
+    font-size: 3.3vw;
+  }
+  .play-pause-system {
+    font-size: 1.5vw;
+  }
+  .music-duration span {
+    font-size: 1.2vw;
+  }
+  .music-remaining {
+    height: 0.3vw;
+    margin: 0.3vw;
+    border-radius: 0.4vw;
+  }
+  .special-features i,
+  .special-features a {
+    font-size: 1.2vw;
+  }
+  .special-features .music-remaining i {
+    top: -160%;
+  }
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  #audio-player {
+    flex-direction: column;
+  }
+  #audio-player .playlist-song {
+    width: 90%;
+    height: 95%;
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: space-between;
+  }
+  #audio-player .playlist-song-img {
+    height: 100%;
+  }
+  #audio-player .playlist-song-name p:nth-child(1) {
+    font-size: 3vw;
+  }
+
+  #audio-player .playlist-song-name p:nth-child(2) {
+    font-size: 2vw;
+  }
+  #audio-player .favourite-check {
+    font-size: 3vw;
+    text-align: right;
+  }
+  #audio-player .favourite-check i::before {
+    margin: 1vw;
+  }
+
+  #audio-player .favourite-check .fa-ban {
+    display: none;
+  }
+  #audio-player .favourite-check .fa-play {
+    display: inline;
+  }
+  #audio-player .favourite-check i:hover {
+    color: white;
+  }
+  .play-pause-system {
+    display: none;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .audio-controller {
+    width: 90%;
+    height: auto;
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .audio-controller-list {
+    width: 100%;
+    /* margin: auto;
+    margin-top: 0.9vw; */
+  }
+  .music-duration span {
+    display: none;
+    font-size: 0;
+  }
+  .music-remaining {
+    width: 98%;
+    height: 1vw;
+    border-radius: 0px;
+  }
+  .music-remaining-percentage {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .music-remaining i {
+    display: none;
+    position: static;
+    left: 0%;
+    top: 0%;
+  }
+  .special-features {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Rough checking */
+/* .main-content {
+  border: 3px solid white;
+}
+.home-page {
+  border: 3px solid white;
+}
+.queue {
+  border: 3px solid white;
+}
+9A9CAD
+*/
+
+/*
+ Artist Musics and Info HTML file
+ artists-music.html
+*/
+/*--------------------------------------------------*/
+/* Artist's Information */
+/*----------------------------------------------------*/
+
+.artist-description {
+  width: 100%;
+  height: 32vw;
+  background-color: #141b41;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  animation: loading-page 1s ease-in 1 alternate;
+}
+.artist-descrip-img {
+  height: 100%;
+  width: 40%;
+  background-image: url(images/ed-sheeran-poster.jpg);
+  background-size: 100% 100%;
+}
+
+.artist-descrip-img:hover {
+  animation: memories-pic 8s ease-in-out infinite alternate;
+}
+/* 
+  Animation for .artist-descrip-img
+  When hover on image you will see this animation.
+*/
+@keyframes memories-pic {
+  0% {
+    background-image: url(images/ed-sheeran-3.jpg);
+  }
+  25% {
+    background-image: url(images/ed-sheeran-2.jpg);
+  }
+  50% {
+    background-image: url(images/ed-sheeran-4.jpg);
+  }
+  75% {
+    background-image: url(images/ed-sheeran-5.jpg);
+  }
+  100% {
+    background-image: url(images/ed-sheeran.jpg);
+  }
+}
+
+.artist-descrip-detail {
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.artist-descrip-detail div:nth-child(1) p:nth-child(1) {
+  font-size: 3vw;
+  width: 50%;
+  /* border: 2px solid white; */
+  margin: 0;
+}
+.artist-descrip-detail div:nth-child(1) p:nth-child(2) {
+  font-size: 1vw;
+  width: 46%;
+  color: #9a9cad;
+  text-align: right;
+  /* border: 2px solid white; */
+  margin: 0;
+}
+.artist-descrip-detail div:nth-child(1) p:nth-child(3) {
+  color: #9a9cad;
+  font-size: 1.5vw;
+  width: 100%;
+  margin: 0.1vw;
+}
+
+.artist-descrip-detail div:nth-child(1) p:nth-child(4) {
+  font-size: 0.9vw;
+  color: #9a9cad;
+}
+
+.artist-descrip-detail div:nth-child(2) button:nth-child(1) {
+  border: none;
+  width: 30%;
+  height: 2.5vw;
+  color: white;
+  background-image: linear-gradient(90deg, rgb(57, 37, 177), rgb(196, 73, 224));
+  font-size: 1.3vw;
+}
+
+.artist-descrip-detail div:nth-child(2) button:nth-child(1):hover {
+  animation: play-all 0.3s ease-in-out infinite alternate;
+}
+@keyframes play-all {
+  from {
+    background-image: linear-gradient(
+      90deg,
+      rgb(57, 37, 177),
+      rgb(196, 73, 224)
+    );
+  }
+  to {
+    background-image: linear-gradient(
+      90deg,
+      rgb(196, 73, 224),
+      rgb(57, 37, 177)
+    );
+  }
+}
+.artist-descrip-detail div:nth-child(2) button:nth-child(2) {
+  border: none;
+  width: 30%;
+  height: 2.5vw;
+  color: white;
+  background: none;
+  font-size: 1.3vw;
+  transition: all 0.5s ease-in-out;
+}
+
+.artist-descrip-detail div:nth-child(2) button:nth-child(2):hover {
+  background-color: burlywood;
+  transition: all 0.5s ease-in-out;
+}
+.artist-descrip-detail div:nth-child(2) p {
+  font-size: 1vw;
+}
+
+.artist-music-record {
+  width: 100%;
+  margin-top: 1.5vw;
+  display: flex;
+  flex-direction: column;
+}
+.artist-music-record .playlist-song {
+  /* width: 80%;
+  height: 5vw;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; */
+  justify-content: start;
+  width: 100%;
+  background-color: rgb(26, 30, 51);
+  margin: 0.3vw;
+  animation: loading-page 1s ease-in 1 alternate;
+}
+
+.artist-music-record .playlist-song-img {
+  /* width: 15%;
+  height: 3vw;
+  margin: auto;
+  border-radius: 3px;
+  background-image: url(rock.jpg);
+  background-size: 100% 100%;
+  position: relative; */
+  margin: 0.7vw;
+  width: 10%;
+  height: 4vw;
+}
+
+.artist-music-record .playlist-song-img:hover i {
+  font-size: 2vw;
+}
+
+.artist-music-record .playlist-song-name {
+  width: 70%;
+}
+
+.artist-music-record .favourite-check {
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.artist-music-record .playlist-song:hover {
+  background-color: rgb(32, 36, 57);
+}
+
+/*--------------------------------------------------*/
+/* Side Bar */
+/*----------------------------------------------------*/
+
+.side-bar {
+  width: 34%;
+  /* border: 2px solid white; */
+}
+
+/*--------------------------------------------------*/
+/* Similar Artists */
+/*----------------------------------------------------*/
+
+.similar-artists {
+  width: 95%;
+  text-align: center;
+
+  animation: loading-page 1s ease-in 1 alternate;
+}
+
+.similar-artists p:nth-child(1) {
+  width: 47%;
+  font-size: 1.5vw;
+  letter-spacing: 0.07vw;
+}
+
+.similar-artists p:nth-child(2) {
+  width: 47%;
+  font-size: 0.9vw;
+  color: #9a9cad;
+  text-align: right;
+}
+
+.similar-artists-list {
+  width: 100%;
+}
+
+.similar-artists-list .latest-song {
+  width: 95%;
+  height: 10vw;
+  /* border: 2px solid white; */
+  margin: auto;
+  margin-top: 1vw;
+}
+
+.similar-artists-list .song-menu {
+  margin: 1vw 0;
+}
+
+.similar-artists-list .song-name,
+.similar-artists-list .song-duration {
+  margin: 1vw 0;
+}
+
+/*--------------------------------------------------*/
+/* Recently Played Songs */
+/*----------------------------------------------------*/
+
+.recently-played {
+  width: 100%;
+  text-align: center;
+}
+
+.recently-played .playlist-song {
+  margin: auto;
+
+  animation: loading-page 1s ease-in 1 alternate;
+}
+/* 
+  If screen width is <= 600px these rules will be
+  applied.
+*/
+@media screen and (max-width: 600px) {
+  .artist-description {
+    height: 60vw;
+  }
+  .artist-descrip-img {
+    width: 45%;
+  }
+  .artist-descrip-detail {
+    width: 53%;
+  }
+  .artist-descrip-detail div:nth-child(1) p:nth-child(1) {
+    font-size: 9vw;
+    width: 99%;
+  }
+  .artist-descrip-detail div:nth-child(1) p:nth-child(2) {
+    display: none;
+  }
+  .artist-descrip-detail div:nth-child(1) p:nth-child(3) {
+    color: #9a9cad;
+    font-size: 3vw;
+    width: 100%;
+    text-align: left;
+  }
+  .artist-descrip-detail div:nth-child(1) p:nth-child(4) {
+    display: none;
+  }
+  .artist-descrip-detail div:nth-child(2) button:nth-child(1) {
+    width: 48%;
+    height: 9vw;
+    font-size: 4vw;
+  }
+  .artist-descrip-detail div:nth-child(2) button:nth-child(2) {
+    width: 48%;
+    height: 9vw;
+    font-size: 4vw;
+    transition: all 0.1s ease-in-out;
+  }
+  .artist-descrip-detail div:nth-child(2) p {
+    font-size: 3vw;
+    text-align: left;
+  }
+  .artist-music-record .playlist-song {
+    /* width: 80%;
+    height: 5vw;
+    border: 2px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; */
+    height: 20vw;
+    justify-content: start;
+    width: 100%;
+    background-color: rgb(26, 30, 51);
+    margin: 0.3vw;
+  }
+  .artist-music-record .playlist-song-img {
+    /* width: 15%;
+    height: 3vw;
+    margin: auto;
+    border-radius: 3px;
+    background-image: url(rock.jpg);
+    background-size: 100% 100%;
+    position: relative; */
+    margin: 0.7vw;
+    width: 40%;
+    height: 19vw;
+  }
+  .artist-music-record .playlist-song-img:hover i {
+    font-size: 7vw;
+  }
+  .artist-music-record .playlist-song-name {
+    width: 40%;
+  }
+  .artist-music-record .playlist-song-name p:nth-child(1) {
+    font-size: 4vw;
+  }
+  .artist-music-record .playlist-song-name p:nth-child(2) {
+    font-size: 3vw;
+  }
+  .artist-music-record .favourite-check {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    text-align: right;
+  }
+  .artist-music-record .favourite-check .fa-plus {
+    display: none;
+  }
+  .side-bar {
+    width: 99%;
+    /* border: 2px solid white; */
+  }
+  .similar-artists p:nth-child(1) {
+    font-size: 5vw;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .similar-artists p:nth-child(2) {
+    font-size: 3vw;
+    display: inline-block;
+  }
+
+  .similar-artists-list {
+    width: 100%;
+    display: flex;
+  }
+  .similar-artists-list .latest-song {
+    width: 33%;
+    height: 25vw;
+    /* border: 2px solid white; */
+    margin-top: 0;
+  }
+  .similar-artists-list .latest-song-img {
+    width: 94%;
+    /* border: 2px solid white; */
+  }
+}
+
+/* ------------------------------------------- */
+/* Rotate play icon by 90deg */
+/* -------------------------------------------- */
+.fa-play {
+  animation: play-rotate 0.3s ease-in-out 1 alternate;
+}
+
+@keyframes play-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
